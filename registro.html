@@ -1,0 +1,61 @@
+<DOCTYPE>
+    <html>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css" />
+        <title>BASTA</title>
+        <header>
+            <body>
+                <center><big><h1>BIENVENIDO A BASTA EL JUEGO EN LINEA</h1></big></center>
+
+           <nav>
+      <ul class="nav gap-3 urbano-menu">
+          <a class="nav-link" href="inicio.html">Inicio</a>
+        <br>
+        <br>
+        <br>
+        <br>
+          <a class="nav-link" href="salas.html">SALAS</a>
+      </ul>
+    </nav>
+    
+</header>
+          <br>      
+<section id="contacto" class="my-5">
+  <center>
+ <form id="formulario-contacto" action="guardar_usuario.php" method="POST" class="container col-md-6 border p-4 rounded" novalidate>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" name="nombre" id="nombre" class="form-control" placeholder=" nombre" required minlength="2">
+  </div>
+
+  <div class="mb-3">
+    <label for="nombre_usuario" class="form-label">Nombre de usuario</label>
+    <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" placeholder=" nombre de usuario" required minlength="2">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo electrónico</label>
+    <input type="email" name="email" id="email" class="form-control" placeholder="correo" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="clave" class="form-label">Contraseña</label>
+    <input type="password" name="clave" id="clave" class="form-control" placeholder="contraseña" required minlength="6">
+  </div>
+
+  <a href="login.html">¿Ya tienes cuenta?</a>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </div>
+</form>
+
+</section>
+<br>
+          <br>      
+ <footer class="text-center mt-5">
+    <p>&copy; 2025 Mi Página Web. Todos los derechos reservados.</p>
+  </footer>
+            </body>
+    </html>
+</DOCTYPE>

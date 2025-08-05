@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>INICIA SESION</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <center><big><h1>BIENVENIDO A BASTA EL JUEGO EN LINEA</h1></big></center>
+    <nav>
+      <ul class="nav gap-3 urbano-menu">
+        <li><a class="nav-link" href="inicio.html">Inicio</a></li>
+        <li><a class="nav-link" href="salas.html">SALAS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="contenedor">
+    <h2>¿Estás Listo?</h2>
+    <p class="letra-info">Letra seleccionada: <strong><span id="letra-aleatoria">A</span></strong></p>
+    <p class="cronometro">Tiempo restante: <span id="tiempo">40</span> segundos</p>
+    
+    <form id="bastaForm" action="guardar_respuesta.php" method="POST">
+      <input type="hidden" id="letra" name="letra" value="">
+      <input type="hidden" id="tiempo_final" name="tiempo" value="">
+
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+      <div class="campo">
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" required>
+      </div>
+      <div class="campo">
+        <label for="animal">Animal:</label>
+        <input type="text" id="animal" name="animal" required>
+      </div>
+      <div class="campo">
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+      </div>
+      <div class="campo">
+        <label for="cosa">Cosa:</label>
+        <input type="text" id="cosa" name="cosa" required>
+      </div>
+      <div class="campo">
+        <label for="flor">Flor:</label>
+        <input type="text" id="flor" name="flor" required>
+      </div>
+
+      <center>
+        <button class="boton-basta" type="button" onclick="terminarJuego()">¡BASTA!</button>
+      </center>
+    </form>
+
+    <button class="boton-nueva" type="button" onclick="window.location.href='partida.html'">🔄 Nueva partida</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mi Página Web. Todos los derechos reservados.</p>
+  </footer>
+
+<script>
+  let letraRandom = 'A';
+  let tiempoRestante = 40;
+  let cronometro;
+
+  window.onload = function () {
+    iniciarPartida();
+  };
+
+  function iniciarPartida() {
+    const letras = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+    letraRandom = letras[Math.floor(Math.random() * letras.length)];
+    document.getElementById('letra-aleatoria').textContent = letraRandom;
+    document.getElementById('letra').value = letraRandom;
+
+    tiempoRestante = 40;
+    document.getElementById('tiempo').textContent = tiempoRestante;
+
+    const campos = ['nombre', 'apellido', 'ciudad', 'animal', 'color', 'cosa', 'flor'];
+    campos.forEach(id => {
+      const input = document.getElementById(id);
+      input.value = '';
+      input.disabled = false;
+      input.style.border = "";
+    });
+
+    clearInterval(cronometro);
+    cronometro = setInterval(() => {
+      tiempoRestante--;
+      document.getElementById('tiempo').textContent = tiempoRestante;
+
+      if (tiempoRestante <= 0) {
+        clearInterval(cronometro);
+        terminarJuego();
+      }
+    }, 1000);
+  }
+
+  function terminarJuego() {
+    clearInterval(cronometro);
+
+    const campos = ['nombre', 'apellido', 'ciudad', 'animal', 'color', 'cosa', 'flor'];
+    let puntaje = 0;
+    let errores = [];
+
+    const soloLetras = /^[A-ZÁÉÍÓÚÜÑ]+$/i; 
+
+    campos.forEach(id => {
+      const input = document.getElementById(id);
+      const valor = input.value.trim();
+      input.disabled = true;
+
+      if (valor === '') {
+        errores.push(`${id} está vacío`);
+        input.style.border = "2px solid red";
+      }
+      else if (valor.length < 2) {
+        errores.push(`${id} debe tener más de una letra`);
+        input.style.border = "2px solid red";
+      }
+      else if (!soloLetras.test(valor)) {
+        errores.push(`${id} solo debe contener letras (sin números ni símbolos)`);
+        input.style.border = "2px solid red";
+      }
+      else if (valor[0].toUpperCase() !== letraRandom) {
+        errores.push(`"${valor}" no comienza con la letra "${letraRandom}"`);
+        input.style.border = "2px solid red";
+      }
+      else {
+        puntaje += 100; // cada respuesta correcta suma 100 puntos
+        input.style.border = "2px solid green";
+      }
+    });
+
+    alert(`Puntaje: ${puntaje}/700\n${errores.join('\n')}`);
+    document.getElementById('tiempo_final').value = tiempoRestante;
+    document.getElementById('bastaForm').submit();
+  }
+</script>
+</body>
+</html>

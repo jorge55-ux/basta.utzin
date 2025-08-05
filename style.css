@@ -1,0 +1,239 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #B2F0E8; 
+  color: #2E2E2E; 
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+header, footer {
+  background-color: #e4a9ec; 
+  color: #426af0; /* Texto legible */
+  padding: 0.25rem;
+  text-align: center;
+  border-radius: 20px 20px;
+}
+ 
+footer {
+  margin-top: 3rem;
+  font-size: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 0 0;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #c59fd4; /* morado más fuerte */
+}
+
+section {
+  padding: 2rem;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  margin-bottom: 1rem;
+  color: #7e86ee;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* boton jugar*/
+button {
+  background-color: #eba9d5; /* rosa pastel */
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #85d3f7; /* coral suave */
+  transform: scale(1.05);
+}
+
+/* formulario */
+#contacto form {
+  border: 3px solid rgb(30, 60, 150);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #8fb5db;
+}
+
+#contacto input,
+#contacto textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid rgb(163, 174, 197);
+}
+
+#contacto input:invalid,
+#contacto textarea:invalid {
+  border-color: rgb(216, 144, 144);
+}
+
+#contacto input:valid,
+#contacto textarea:valid {
+  border-color: rgb(156, 211, 156);
+}
+
+/* botón enviar */
+#contacto button {
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background-color: #806996;
+  color: #dedddf;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  width: auto;
+  display: inline-block;
+}
+
+#contacto button:hover {
+  background-color: rgb(115, 123, 240);
+}
+
+/* Estilo urbano y legible para la navegación */
+.urbano-menu .nav-link {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.urbano-menu .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #9d7fd6;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.urbano-menu .nav-link:hover {
+  color: #71def9;
+}
+
+.urbano-menu .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* partida */
+body {
+  background-color: #b2f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #d1ecf1;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid #6c9cbf;
+}
+
+h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.campo {
+  margin-bottom: 15px;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.campo input {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.boton-basta {
+  display: block;
+  margin: 20px auto 0 auto;
+  background-color: #ff8c8c;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-basta:hover {
+  background-color: #e57373;
+}
+
+.letra-info {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* inicio html */
+.selector-sala {
+  margin: 20px auto;
+  display: block;
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #6c9cbf;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.selector-sala:focus {
+  border-color: #4b79a1;
+  outline: none;
+}
